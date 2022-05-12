@@ -1,0 +1,68 @@
+{
+  "name": "coc-lombok",
+  "version": "0.1.0",
+  "description": "A lightweight extension to support Lombok annotations processing for coc.nvim",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*",
+    "LICENSE"
+  ],
+  "publisher": "hungio",
+  "engines": {
+    "coc": ">=0.0.80"
+  },
+  "keywords": [
+    "lombok",
+    "coc.vim"
+  ],
+  "repository": "https://github.com/hungio/coc-lombok.git",
+  "bugs": "https://github.com/hungio/coc-lombok/issues",
+  "scripts": {
+    "clean": "node ./node_modules/rimraf/bin.js lib/",
+    "compile": "npm run clean && webpack",
+    "prepare": "webpack"
+  },
+  "activationEvents": [
+    "onLanguage:java",
+    "workspaceContains:pom.xml",
+    "workspaceContains:build.gradle",
+    "workspaceContains:build.gradle.kts",
+    "workspaceContains:.classpath"
+  ],
+  "contributes": {
+    "rootPatterns": [
+      {
+        "filetype": "java",
+        "patterns": [
+          "package.json",
+          ".project",
+          ".classpath",
+          "build.gradle.kts",
+          "build.gradle"
+        ]
+      }
+    ]
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hungio/coc-lombok#readme",
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/got": "^9.6.12",
+    "@types/jsonic": "^0.3.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.12.0",
+    "@types/tunnel": "^0.0.3",
+    "coc.nvim": "^0.0.81-next.27",
+    "glob": "^7.1.6",
+    "got": "^11.8.3",
+    "mocha": "^6.1.4",
+    "rimraf": "^3.0.1",
+    "ts-loader": "^6.0.3",
+    "tslint": "^6.0.0",
+    "tunnel": "0.0.6",
+    "typescript": "^4.6.4",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {}
+}
